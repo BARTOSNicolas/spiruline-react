@@ -1,0 +1,23 @@
+.card{
+  border: 5px solid darken(#2f4f4f, 5%);
+  background-color: lighten(#2f4f4f, 10%);
+  margin-bottom: 10px;
+  .card-title{
+    color: whitesmoke;
+  }
+  .card-subtitle{
+    font-style: italic;
+    &.stock{
+      color: darkolivegreen;
+    }
+    &.no-stock{
+      color: darkred;
+    }
+  }
+  .card-text{
+    color: whitesmoke;
+  }
+  .card-link{
+    color: darken(#2f4f4f, 10%);
+  }
+}
