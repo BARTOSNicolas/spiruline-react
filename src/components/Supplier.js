@@ -7,8 +7,17 @@ import {Card} from "react-bootstrap";
 
 
 class Supplier extends React.Component{
+
     dateFormat = format(this.props.supplier.checkedAt, 'fr_FR')
     options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
+
+    setStatus(){
+        this.setState({
+            status: !this.props.supplier.status
+        })
+        console.log(this.state)
+    }
 
     render() {
         return (
@@ -21,8 +30,8 @@ class Supplier extends React.Component{
                         Dernière mise à jour : <br/>
                         {this.dateFormat}
                     </Card.Text>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
+                    <Card.Link href="#" onClick={() => this.setStatus()}>Edit</Card.Link>
+                    <Card.Link href="#">Delete</Card.Link>
                 </Card.Body>
             </Card>
         )

@@ -40,5 +40,20 @@
       }
     }
   }
+  .content{
+    .spin{
+      padding-top: 150px;
+      text-align: center;
+      .spinner-border{
+        width: 150px;
+        height: 150px;
+        color: darken(#2f4f4f, 10%);
+        border-width: 0.75em;
+      }
+    }
+    .error{
+      color: red;
+    }
+  }
 
 }

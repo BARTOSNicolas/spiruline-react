@@ -19,15 +19,26 @@ class Map extends React.Component{
         iconAnchor: [13, 0]
     });
 
-    mapSuppliers = this.props.suppliers.map(supplier => {
-        return (
-            <Marker key={supplier.id} position={[supplier.latitude, supplier.longitude ]} icon={this.customMarker}>
-                <Popup>
-                    A pretty CSS3 popup. <br/> Easily customizable.
-                </Popup>
-            </Marker>
-        )
-    });
+    setPosition(latitude, longitude){
+        this.setState({position: [latitude, longitude]});
+        console.log(this.state.position)
+        return this.state.position
+    }
+
+    setMarker() {
+        return this.mapSuppliers = this.props.suppliers.map(supplier => {
+            return (
+                <Marker key={supplier.id} position={[supplier.latitude, supplier.longitude ]} icon={this.customMarker}>
+                    <Popup>
+                        A pretty CSS3 popup. <br/> Easily customizable.  <br/>
+                        <button onClick={()=>{
+                            this.setPosition(supplier.latitude, supplier.longitude)
+                        }}>Centrer sur la carte</button>
+                    </Popup>
+                </Marker>
+            )
+        });
+    }
 
     render(){
         return(
@@ -37,7 +48,7 @@ class Map extends React.Component{
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
-                    {this.mapSuppliers}
+                    {this.setMarker()}
                 </MapContainer>
             </div>
         )
